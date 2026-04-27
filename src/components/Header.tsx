@@ -7,11 +7,13 @@ export default function Header() {
         style={{ backgroundColor: "#1A1A1A", textDecoration: "none" }}
       >
         <span className="text-[14px] text-white font-medium tracking-wide">Zahra Zamin</span>
-        <span className="text-[14px]" style={{ color: "#6B6B6B" }}>— Product Designer</span>
+        <span className="hidden md:inline text-[14px]" style={{ color: "#6B6B6B" }}>— Product Designer</span>
       </a>
 
       <a
-        href="#"
+        href="https://drive.google.com/file/d/1H2FsAGcctxxyNI8V-YoFHQ-EdW_YTqZV/view?usp=sharing"
+        target="_blank"
+        rel="noopener noreferrer"
         className="resume-btn pointer-events-auto inline-flex items-center rounded-full px-5 py-2.5 text-[14px] font-semibold text-white tracking-wide"
         style={{ backgroundColor: "#d44a1e" }}
       >

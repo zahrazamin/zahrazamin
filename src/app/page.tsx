@@ -44,7 +44,7 @@ const SKILLS = [
 const CONNECT_LINKS = [
   { label: "Email", href: "mailto:zahrazamin360@gmail.com" },
   { label: "LinkedIn", href: "#" },
-  { label: "Resume", href: "#" },
+  { label: "Resume", href: "https://drive.google.com/file/d/1H2FsAGcctxxyNI8V-YoFHQ-EdW_YTqZV/view?usp=sharing" },
 ];
 
 export default function Page() {
@@ -294,6 +294,8 @@ export default function Page() {
                 <a
                   key={link.label}
                   href={link.href}
+                  target={link.label !== "Email" ? "_blank" : undefined}
+                  rel={link.label !== "Email" ? "noopener noreferrer" : undefined}
                   className="connect-row flex items-center justify-between px-2 py-4 -mx-2 rounded-lg"
                   style={{ borderBottom: "1px solid #E5DFD8" }}
                 >
