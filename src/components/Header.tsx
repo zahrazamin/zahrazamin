@@ -13,7 +13,7 @@ export default function Header() {
       <a
         href="#"
         className="resume-btn pointer-events-auto inline-flex items-center rounded-full px-5 py-2.5 text-[14px] font-semibold text-white tracking-wide"
-        style={{ backgroundColor: "#F05A28" }}
+        style={{ backgroundColor: "#d44a1e" }}
       >
         My Resume
       </a>

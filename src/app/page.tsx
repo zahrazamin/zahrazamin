@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import BookCard from "@/components/BookCard";
 
 const PROJECTS = [
   {
@@ -118,9 +119,30 @@ export default function Page() {
               Get in Touch
             </a>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: "#4CAF50" }} />
+              <span style={{ position: "relative", display: "inline-flex", width: 8, height: 8, flexShrink: 0 }}>
+                <span style={{
+                  position: "absolute", inset: 0,
+                  borderRadius: "50%",
+                  background: "#4CAF50",
+                  opacity: 0.5,
+                  animation: "dot-ping 1.6s cubic-bezier(0,0,0.2,1) infinite",
+                }} />
+                <span style={{
+                  position: "relative", display: "inline-flex",
+                  width: 8, height: 8,
+                  borderRadius: "50%",
+                  backgroundColor: "#4CAF50",
+                }} />
+              </span>
               <span className="text-[15px]" style={{ color: "#6B6B6B" }}>Open to new projects</span>
             </div>
+            <style>{`
+              @keyframes dot-ping {
+                0%   { transform: scale(1);   opacity: 0.55; }
+                70%  { transform: scale(2.6); opacity: 0; }
+                100% { transform: scale(2.6); opacity: 0; }
+              }
+            `}</style>
           </div>
         </div>
       </section>
@@ -198,10 +220,8 @@ export default function Page() {
         <div className="max-w-[780px] mx-auto">
 
           <div className="grid md:grid-cols-[220px_1fr] gap-8 py-14" style={{ borderTop: "1px solid #E5DFD8" }}>
-            <div>
-              <h2 className="text-[#1A1A1A]" style={{ fontSize: "clamp(52px,6vw,80px)", lineHeight: 1, fontWeight: 800 }}>
-                Hello.
-              </h2>
+            <div className="flex items-start justify-center md:justify-start" style={{ maxWidth: 260 }}>
+              <BookCard />
             </div>
             <div className="space-y-4 text-[16px] leading-[1.9] pt-1" style={{ color: "#6B6B6B" }}>
               <p>
@@ -249,13 +269,6 @@ export default function Page() {
                   </li>
                 ))}
               </ol>
-
-              <blockquote
-                className="leading-[1.5] mb-10 font-medium"
-                style={{ fontSize: "clamp(19px,2.4vw,26px)", color: "#2A6B70" }}
-              >
-                "AI makes me faster. It doesn't make the decisions. That's still mine."
-              </blockquote>
 
               <div className="flex flex-wrap gap-2">
                 {SKILLS.map((skill) => (

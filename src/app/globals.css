@@ -120,29 +120,65 @@ body {
 
 @media (hover: hover) and (pointer: fine) {
   .resume-btn:hover {
-    background-color: #d44a1e !important;
+    background-color: #1570CA !important;
   }
 }
 
 /* ── Waving hand ────────────────────────────────── */
 
 @keyframes wave-hand {
-  0%   { transform: rotate(0deg);   opacity: 0; }
-  4%   { transform: rotate(0deg);   opacity: 1; }
-  9%   { transform: rotate(22deg);  opacity: 1; }
-  14%  { transform: rotate(-10deg); opacity: 1; }
-  19%  { transform: rotate(22deg);  opacity: 1; }
-  24%  { transform: rotate(-6deg);  opacity: 1; }
-  29%  { transform: rotate(16deg);  opacity: 1; }
-  36%  { transform: rotate(0deg);   opacity: 0; }
-  100% { transform: rotate(0deg);   opacity: 0; }
+  /* ── spot 1: above "Hi," ── */
+  0%   { transform: translate(0px, 0px) rotate(0deg);       opacity: 0; }
+  2%   { transform: translate(0px, 0px) rotate(0deg);       opacity: 1; }
+  6%   { transform: translate(0px, 0px) rotate(22deg);      opacity: 1; }
+  10%  { transform: translate(0px, 0px) rotate(-8deg);      opacity: 1; }
+  14%  { transform: translate(0px, 0px) rotate(18deg);      opacity: 1; }
+  18%  { transform: translate(0px, 0px) rotate(0deg);       opacity: 1; }
+  21%  { transform: translate(0px, 0px) rotate(0deg);       opacity: 0; }
+
+  /* ── jump to spot 2: top-right of heading ── */
+  22%  { transform: translate(390px, -22px) rotate(0deg);   opacity: 0; }
+  25%  { transform: translate(390px, -22px) rotate(0deg);   opacity: 1; }
+  29%  { transform: translate(390px, -22px) rotate(22deg);  opacity: 1; }
+  33%  { transform: translate(390px, -22px) rotate(-8deg);  opacity: 1; }
+  37%  { transform: translate(390px, -22px) rotate(18deg);  opacity: 1; }
+  41%  { transform: translate(390px, -22px) rotate(0deg);   opacity: 1; }
+  44%  { transform: translate(390px, -22px) rotate(0deg);   opacity: 0; }
+
+  /* ── jump to spot 3: start of line 2 ── */
+  45%  { transform: translate(5px, 82px) rotate(0deg);      opacity: 0; }
+  48%  { transform: translate(5px, 82px) rotate(0deg);      opacity: 1; }
+  52%  { transform: translate(5px, 82px) rotate(22deg);     opacity: 1; }
+  56%  { transform: translate(5px, 82px) rotate(-8deg);     opacity: 1; }
+  60%  { transform: translate(5px, 82px) rotate(18deg);     opacity: 1; }
+  64%  { transform: translate(5px, 82px) rotate(0deg);      opacity: 1; }
+  67%  { transform: translate(5px, 82px) rotate(0deg);      opacity: 0; }
+
+  /* ── jump to spot 4: right side of line 2 ── */
+  68%  { transform: translate(340px, 82px) rotate(0deg);    opacity: 0; }
+  71%  { transform: translate(340px, 82px) rotate(0deg);    opacity: 1; }
+  75%  { transform: translate(340px, 82px) rotate(22deg);   opacity: 1; }
+  79%  { transform: translate(340px, 82px) rotate(-8deg);   opacity: 1; }
+  83%  { transform: translate(340px, 82px) rotate(18deg);   opacity: 1; }
+  87%  { transform: translate(340px, 82px) rotate(0deg);    opacity: 1; }
+  90%  { transform: translate(340px, 82px) rotate(0deg);    opacity: 0; }
+
+  /* ── pause, reset position for next loop ── */
+  91%  { transform: translate(0px, 0px) rotate(0deg);       opacity: 0; }
+  100% { transform: translate(0px, 0px) rotate(0deg);       opacity: 0; }
 }
 
 .wave-hand {
-  animation: wave-hand 5s ease-in-out infinite;
+  animation: wave-hand 18s ease-in-out infinite;
   transform-origin: 70% 80%;
   display: inline-block;
   opacity: 0;
+}
+
+@media (max-width: 640px) {
+  .wave-hand {
+    animation: wave-hand 18s ease-in-out infinite;
+  }
 }
 
 /* ── Reduced motion ─────────────────────────────── */
