@@ -1,26 +1,166 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FAF7F2;
+  --foreground: #1A1A1A;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Typography ─────────────────────────────────── */
+
+.font-heading {
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+/* ── CTA button (white pill, toan style) ─────────── */
+
+.btn-cta {
+  transition: transform 160ms var(--ease-out), box-shadow 160ms ease;
+}
+
+.btn-cta:active {
+  transform: scale(0.97);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-cta:hover {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* ── Cards ──────────────────────────────────────── */
+
+.card-project {
+  transition: transform 220ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card-project:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* ── Connect rows ───────────────────────────────── */
+
+.connect-row {
+  transition: background-color 160ms ease;
+}
+
+.connect-arrow {
+  transition: transform 200ms var(--ease-out), color 160ms ease;
+  color: #8c8c8c;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .connect-row:hover {
+    background-color: rgba(42, 107, 112, 0.04);
+  }
+
+  .connect-row:hover .connect-arrow {
+    transform: translate(2px, -2px);
+    color: #1a1a1a;
+  }
+}
+
+/* ── Card links ─────────────────────────────────── */
+
+.card-link {
+  color: rgba(255, 255, 255, 0.55);
+  transition: color 160ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card-link:hover {
+    color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+/* ── Muted links ────────────────────────────────── */
+
+.muted-link {
+  color: #8c8c8c;
+  transition: color 160ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .muted-link:hover {
+    color: #1a1a1a;
+  }
+}
+
+/* ── Resume button ──────────────────────────────── */
+
+.resume-btn {
+  transition: transform 160ms var(--ease-out), background-color 160ms ease;
+}
+
+.resume-btn:active {
+  transform: scale(0.97);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .resume-btn:hover {
+    background-color: #d44a1e !important;
+  }
+}
+
+/* ── Waving hand ────────────────────────────────── */
+
+@keyframes wave-hand {
+  0%   { transform: rotate(0deg);   opacity: 0; }
+  4%   { transform: rotate(0deg);   opacity: 1; }
+  9%   { transform: rotate(22deg);  opacity: 1; }
+  14%  { transform: rotate(-10deg); opacity: 1; }
+  19%  { transform: rotate(22deg);  opacity: 1; }
+  24%  { transform: rotate(-6deg);  opacity: 1; }
+  29%  { transform: rotate(16deg);  opacity: 1; }
+  36%  { transform: rotate(0deg);   opacity: 0; }
+  100% { transform: rotate(0deg);   opacity: 0; }
+}
+
+.wave-hand {
+  animation: wave-hand 5s ease-in-out infinite;
+  transform-origin: 70% 80%;
+  display: inline-block;
+  opacity: 0;
+}
+
+/* ── Reduced motion ─────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .wave-hand {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
 }
